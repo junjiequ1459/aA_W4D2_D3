@@ -1,5 +1,5 @@
 class Piece
-  attr_accessor :pos
+  attr_accessor :name
 
   def initialize(name)
     @name = name
