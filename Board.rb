@@ -1,10 +1,11 @@
-require_relative "piece"
+require_relative "Piece"
 
 class Board
   attr_accessor :grid
 
   def initialize
     @grid = Array.new(8) { Array.new(8, nil) }
+    # @null_piece = Null_piece.new
   end
 
   def [](pos)
@@ -18,10 +19,12 @@ class Board
   end
 
   def move_piece(start_pos, end_pos)
-    raise 'no' if self[start_pos] == nil || end_pos.all? { |ele| ele.between?(0, 8) }
+    raise "no" if self[start_pos] == nil || end_pos.all? { |ele| ele.between?(0, 8) }
+    # start pos = null piece
+    #end pos = Piece
   end
 
-  def set_pieces
+  private
 
-  end
+  attr_accessor :null_piece
 end
