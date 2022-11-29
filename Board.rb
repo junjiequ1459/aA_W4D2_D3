@@ -20,4 +20,8 @@ class Board
   def move_piece(start_pos, end_pos)
     raise 'no' if self[start_pos] == nil || end_pos.all? { |ele| ele.between?(0, 8) }
   end
+
+  def set_pieces
+
+  end
 end
