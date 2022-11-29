@@ -1,8 +1,8 @@
 class Piece
-  attr_accessor :name
+  attr_accessor :board, :pos
 
-  def initialize(name)
-    @name = name
-    @current = []
+  def initialize(board, pos)
+    @board = board
+    @pos = pos
   end
 end
