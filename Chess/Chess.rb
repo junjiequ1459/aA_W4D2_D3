@@ -1,4 +1,5 @@
 require_relative "piece"
+require_relative "module"
 
 class Pawn < Piece
   def moves
@@ -10,16 +11,10 @@ end
 #   end
 # end
 
-# class Sliding_piece < Piece
-#     HORIZONTAL_DIRS =
-#     DIAGONAL_DIRS =
-
-#   def moves
-#   end
-
-#   def grow_unblocked_in_dir(dx, dy)
-#   end
-# end
+class Sliding_piece < Piece
+  def move_dirs
+  end
+end
 
 # class Null_piece < Piece
 #   include Singleton
@@ -27,3 +22,6 @@ end
 #   def initialize
 #   end
 # end
+
+#Example
+#Stepping_piece.new(:B,:Black,Board,[1,0])
