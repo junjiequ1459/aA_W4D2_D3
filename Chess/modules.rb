@@ -29,9 +29,18 @@ module Slideable
     pos_y = self.pos[1]
     result = []
 
-    while pos_x.between?(0, 8) && pos_y.between?(0, 8) && board[pos_x, pos_y] != nil
+    while pos_x.between?(0, 7) && pos_y.between?(0, 7)
       pos_x += dx
       pos_y += dy
+
+      if board[pos_x, pos_y] != nil
+        if board[pos_x, pos_y].color == self.color
+          return result
+        else
+          result << [pos_x, pos_y]
+          return result
+        end
+      end
 
       result << [pos_x, pos_y]
     end
@@ -61,7 +70,15 @@ module Stepable
     pos_y = self.pos[0]
 
     move_diff.each do |ele|
-      if (pos_x + ele[0]).between?(0, 8) && (pos_y + ele[1]).between?(0, 8) && board[pos_x, pos_y] != nil
+      if (pos_x + ele[0]).between?(0, 7) && (pos_y + ele[1]).between?(0, 7)
+        if board[pos_x, pos_y] != nil
+          if board[pos_x, pos_y].color == self.color
+            return result
+          else
+            result << [pos_x, pos_y]
+            return result
+          end
+        end
         result << [pos_x + ele[0], pos_y + ele[1]]
       end
     end
