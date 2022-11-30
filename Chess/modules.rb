@@ -25,24 +25,24 @@ module Slideable
   end
 
   def grow_unblocked_in_dir(dx, dy)
-    pos_x = self.pos[0]
-    pos_y = self.pos[1]
+    y = self.pos[0]
+    x = self.pos[1]
     result = []
 
-    while pos_x.between?(0, 7) && pos_y.between?(0, 7)
-      pos_x += dx
-      pos_y += dy
+    while y.between?(0, 7) && x.between?(0, 7)
+      y += dx
+      x += dy
 
-      if board[pos_x, pos_y] != nil
-        if board[pos_x, pos_y].color == self.color
+      if board[y, x] != nil
+        if board[y, x].color == self.color
           return result
         else
-          result << [pos_x, pos_y]
+          result << [y, x]
           return result
         end
       end
 
-      result << [pos_x, pos_y]
+      result << [y, x]
     end
     result
   end
@@ -66,20 +66,20 @@ module Stepable
 
   def moves
     result = []
-    pos_x = self.pos[0]
-    pos_y = self.pos[0]
+    y = self.pos[0]
+    x = self.pos[0]
 
     move_diff.each do |ele|
-      if (pos_x + ele[0]).between?(0, 7) && (pos_y + ele[1]).between?(0, 7)
-        if board[pos_x, pos_y] != nil
-          if board[pos_x, pos_y].color == self.color
+      if (y + ele[0]).between?(0, 7) && (x + ele[1]).between?(0, 7)
+        if board[y, x] != nil
+          if board[y, x].color == self.color
             return result
           else
-            result << [pos_x, pos_y]
+            result << [y, x]
             return result
           end
         end
-        result << [pos_x + ele[0], pos_y + ele[1]]
+        result << [y + ele[0], x + ele[1]]
       end
     end
     result
