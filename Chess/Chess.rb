@@ -21,6 +21,21 @@ class Queen < Piece
   include Slideable
 
   def move_dir
-    horizontal_dirs.concat(diagonal_dirs)
+    horizontal_dirs + diagonal_dirs
   end
+end
+
+class Knight
+  def move_diff
+    knight
+  end
+end
+
+class King
+  def move_diff
+    king
+  end
+end
+
+class Pawn
 end
